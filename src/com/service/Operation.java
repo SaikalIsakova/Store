@@ -4,9 +4,9 @@ import com.*;
 
 public interface Operation {
 
-    Receipt getReceipt(Order order);
+    Receipt getReceipt(Order order) ;
     Cashier getCashier(String name);
-    Product[]getProductByCategory(String category);
+    Product[]getProductByCategory(String category)throws Exception;
     void getCategory();
     void getCashier();
    Product chooseProduct(String name);

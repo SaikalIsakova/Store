@@ -90,7 +90,7 @@ public class OperationImpl implements Operation {
 
                 double cost=product.getCost()*details[i].getAmount();
                 double discount=(cost*details[i].getDiscount())/100;
-                totalSum=totalSum+(cost-discount);
+                totalSum=totalSum+cost;
                 totalDiscount=totalDiscount+discount;
 
                 receiptDetails[i]=new ReceiptDetails(product.getName(),cost-discount);

@@ -15,33 +15,48 @@ public class Main {
         System.out.println("Добро пожаловать!");
         Details[]details=new Details[4];
 
-        while(answer!=1){
-        System.out.println("Выберите категорию.");
-        operation.getCategory();
-        String category=sc.next();
-        Product[]products= operation.getProductByCategory(category);
-        for (Product product :products) {
-            if(product!=null)
-            product.getInfo();
+        while(answer!=1) {
+            System.out.println("Выберите категорию.");
+            operation.getCategory();
+            String category = sc.next();
+            Product[] products = new Product[0];
+            try {
+                products = operation.getProductByCategory(category);
+            } catch (Exception e) {
+                System.out.println("Введите правильно категории!");
+                continue;
+            }
+            for (Product product : products) {
+                if (product != null)
+                    product.getInfo();
+            }
+
+            System.out.println("Выберите продукт :");
+
+            String chooseProduct = sc.next();
+            Product product = operation.chooseProduct(chooseProduct);
+
+            int amount;
+            while (true) {
+                System.out.println("Количество выбранного продукта :");
+                try{
+                    amount=Integer.valueOf(sc.next());
+                    break;
+                }catch (NumberFormatException e){
+                    System.out.println("Введите правильные данные!");
+                }
+            }
+
+            System.out.println("Размер скидки в %");
+            double discount = sc.nextDouble();
+
+            Details detail = new Details(product, amount, discount);
+            details[count] = detail;
+
+            System.out.println("Продолжим? Если да то 0,если нет то 1");
+            answer = sc.nextInt();
+            count++;
         }
-
-        System.out.println("Выберите продукт :");
-        String chooseProduct = sc.next();
-        Product product= operation.chooseProduct(chooseProduct);
-
-        System.out.println("Количество выбранного продукта :");
-        int amount = sc.nextInt();
-
-        System.out.println("Размер скидки в %");
-        double discount = sc.nextDouble();
-
-        Details detail=new Details(product,amount,discount);
-        details[count]=detail;
-
-        System.out.println("Продолжим? Если да то 0,если нет то 1");
-        answer=sc.nextInt();
-        count++;
-    }
         for (Details item:details) {
             if(item!=null){
                 System.out.println(item);
