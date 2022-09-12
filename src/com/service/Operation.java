@@ -1,13 +1,14 @@
 package com.service;
 
-import com.Cashier;
-import com.Product;
+import com.*;
 
 public interface Operation {
 
-//    Receipt getReceipt(Order order);
+    Receipt getReceipt(Order order);
     Cashier getCashier(String name);
     Product[]getProductByCategory(String category);
     void getCategory();
-    void chooseProduct(String name);
+    void getCashier();
+   Product chooseProduct(String name);
+    Cashier getCashierByName(String cashier);
 }

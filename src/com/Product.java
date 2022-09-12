@@ -56,8 +56,13 @@ public abstract class Product {
     public String toString() {
         return
                 "Название продукта : " + name +
-                ", Цена : " + cost +
-                ", Единица измерения : " + measure +
-                ", Категория : " + productCategory.getName();
+                        ", Цена : " + cost +
+                        ", Единица измерения : " + measure +
+                        ", Категория : " + productCategory.getName();
     }
-}
+       public void getInfo(){
+            System.out.println(this.name);
+           System.out.println(this.cost);
+        }
+    }
+

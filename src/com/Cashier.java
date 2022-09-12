@@ -2,6 +2,7 @@ package com;
 
 public class Cashier {
     private String name;
+
     private int age;
 
     public Cashier(String name, int age) {
@@ -23,5 +24,14 @@ public class Cashier {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    void getInfo(){
+        System.out.println(this.name);
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + age;
     }
 }
