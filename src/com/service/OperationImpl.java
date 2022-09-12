@@ -81,7 +81,7 @@ public class OperationImpl implements Operation {
         double totalSum=0;
         double totalDiscount=0;
 
-        ReceiptDetails[] receiptDetails=new ReceiptDetails[10];
+        ReceiptDetails[] receiptDetails=new ReceiptDetails[details.length];
 
         for (int i=0; i<details.length;i++){
             if(details[i]!=null){

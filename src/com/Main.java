@@ -36,25 +36,42 @@ public class Main {
             String chooseProduct = sc.next();
             Product product = operation.chooseProduct(chooseProduct);
 
-            int amount;
+            int amount=0;
             while (true) {
                 System.out.println("Количество выбранного продукта :");
-                try{
-                    amount=Integer.valueOf(sc.next());
+                try {
+                    amount = Integer.valueOf(sc.next());
                     break;
-                }catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
                     System.out.println("Введите правильные данные!");
+
                 }
             }
 
             System.out.println("Размер скидки в %");
-            double discount = sc.nextDouble();
+            double discount = 0;
+            while (true) {
+                try {
+                    discount = Double.valueOf(sc.next().trim().replace(",", "."));
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Неправильный ввод скидки!");
+                }
+            }
 
             Details detail = new Details(product, amount, discount);
             details[count] = detail;
 
+            while (true){
             System.out.println("Продолжим? Если да то 0,если нет то 1");
             answer = sc.nextInt();
+            if(answer==1||answer==0){
+                break;
+            }else{
+                System.out.println("Введите верные данные!");
+            continue;}
+            }
+
             count++;
         }
         for (Details item:details) {
